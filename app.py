@@ -16,7 +16,7 @@ app = Flask(__name__)
 # auth.set_access_token(access_token, access_token_secret)
 
 #api=tweepy.API(auth)
-api=TwitterClient("@Sirjology")
+api = TwitterClient("@Sirjology")
 
 def strtobool(v):
 	return v.lower() in ["yes","true","t","1"]
@@ -35,16 +35,15 @@ def index():
 #     count=len(public_tweets)
 #     print(count)
 #     return jsonify({'data': public_tweets, 'count':count})
-
 @app.route('/tweets')
 def tweets():
-	retweets_only=request.args.get('retweets_only')
+	retweets_only = request.args.get('retweets_only')
 	api.set_retweet_checking(strtobool(retweets_only.lower()))
-	with_sentiment=request.args.get('with_sentiment')
+	with_sentiment = request.args.get('with_sentiment')
 	api.set_with_sentiment(strtobool(with_sentiment.lower()))
-	query=request.args.get('query')
+	query = request.args.get('query')
 	api.set_query(query)
-	tweets=api.get_tweets()
+	tweets = api.get_tweets()
 	return jsonify({'data':tweets,'count':len(tweets)})
 
 
