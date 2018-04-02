@@ -5,17 +5,7 @@ from textblob import TextBlob
 import json
 from twitter import TwitterClient
 app = Flask(__name__)
-# Setup the client <query string, retweets_only bool, with_sentiment bool>
-# consumer_key= 'h8hRC27fktiLOvGpfK744DFR5'
-# consumer_secret= 'jjs5Yd4XryZvU0iHPIEE0SMSn7D0bmb9l0aUi4JapYDdlpAQ15'
 
-# access_token='2276521472-pBjts8PRpGVzVrEE4boTytvvoFZ3yeY3lYA95ww'
-# access_token_secret='nnqhCqXyWJq35WhlqBY26NJSYFiwFpsDu513QfZ9BB1mW'
-
-# auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-# auth.set_access_token(access_token, access_token_secret)
-
-#api=tweepy.API(auth)
 api = TwitterClient("@Sirjology")
 
 def strtobool(v):
