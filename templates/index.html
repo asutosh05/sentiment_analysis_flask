@@ -17,6 +17,7 @@
             <div id="serach_box" class="container-fluid">
                 <input type="text" id="query" />
                 <button id="search">Search</button>
+                <button id="getcsv">Download CSV</button>
                 <div id="lodaing">loading.....</div>
                 <div id="container" style="mid-with:310px;height:400px;max-wdith:600px;margin:0 auto">
 
@@ -96,7 +97,7 @@
                     count++;
                 }
             }
-            return count / data.count;
+            return (count / data.count)*100;
         }
         function getPostivePercentage(data) {
             var current_data = data['data'];
@@ -106,7 +107,7 @@
                     count++;
                 }
             }
-            return count / data.count;
+            return (count / data.count)*100;
         }
         function getNeturalPercentage(data) {
             var current_data = data['data'];
@@ -116,7 +117,7 @@
                     count++;
                 }
             }
-            return count / data.count;
+            return (count / data.count)*100;
         }
         function getPercentage(data) {
             var neutral = getNeturalPercentage(data);
@@ -147,6 +148,9 @@
             $('#loading').html("Loading......");
             $('#tweets').html('');
             load_tweets($('#query').val())
+        });
+        $('#getcsv').click(function(){
+            download('data.csv',get_csv(current_data));
         });
     </script>
 
