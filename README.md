@@ -1,3 +1,3 @@
 # sentiment_analysis_flask
 
-Add Your Twetter Keys In tweet.py and Try It
+Add Your Twetter Keys In twitter.py and Try It
